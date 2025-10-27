@@ -1,21 +1,45 @@
-const container = document.querySelector("div");
+const container = document.querySelector(".container");
+container.classList.add("container");
 
+function drawGrid (num) {
+    container.innerHTML = "";
 
+    const squareSize = 500/num;
 
-function drawDivs (num) {
-    for (let i = 1; i <= num; i++) {
-        
-        const square = document.createElement("div");
-        square.setAttribute("style", "border: 1px solid red; width: 40px; height: 40px; box-sizing: border-box;");
+    for (i=1; i <= num *num; i++){
+    const square = document.createElement("div");
+    square.classList.add("square");
 
-        square.addEventListener("mouseover", () => {
-            square.style.background = "red";
-        })
+    square.style.width = squareSize + "px";
+    square.style.height = squareSize + "px";
 
-        container.appendChild(square);
-        
-    }
+    square.addEventListener("mouseover", () => {
+        square.classList.add("hover");
+    })
+
+    container.appendChild(square);
 }
+}
+drawGrid(16);
 
-drawDivs(256);
+const butDiv = document.querySelector(".button");
+const button = document.createElement("button");
+button.classList.add("button");
+button.textContent = "Start";
+button.addEventListener("click", () => {
+    let number = parseInt(prompt("Enter number of squares per side:"));
+    if (number > 0 && number <= 100) {
+        drawGrid(number);
+    } else {
+        alert("Invalid! Please Try Again!");
+    }
+    
+})
+butDiv.appendChild(button);
+
+
+
+
+
+
 
