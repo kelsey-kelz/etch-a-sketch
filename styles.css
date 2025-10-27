@@ -19,6 +19,26 @@ body {
     height: 500px;
 }
 
+h1, p {
+    color: blue;
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0px 5px 0;
+    gap: 10px;
+}
+
+button {
+    padding: 5px 30px;
+    margin-left: 60px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
 .square {
     border: 1px solid blue;
     width: 50px; 
