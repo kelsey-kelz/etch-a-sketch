@@ -1,6 +1,13 @@
 const container = document.querySelector(".container");
 container.classList.add("container");
 
+function randomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 function drawGrid (num) {
     container.innerHTML = "";
 
@@ -14,7 +21,7 @@ function drawGrid (num) {
     square.style.height = squareSize + "px";
 
     square.addEventListener("mouseover", () => {
-        square.classList.add("hover");
+        square.style.backgroundColor = randomRGB();
     })
 
     container.appendChild(square);
